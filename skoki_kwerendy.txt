@@ -1,0 +1,15 @@
+1. SELECT `Imie`, `Nazwisko`, `Punkty` FROM `zawodnicy`, `wyniki`  
+WHERE `wyniki`.`ID_zawodnika` = `zawodnicy`.`ID_zawodnika`
+ORDER BY `wyniki`.`Punkty` DESC LIMIT 3;
+2.
+SELECT DISTINCT COUNT(*)
+FROM zawodnicy
+JOIN kraje ON zawodnicy.ID_kraju = kraje.ID_kraju
+JOIN wyniki ON zawodnicy.ID_zawodnika = wyniki.ID_zawodnika
+WHERE kraje.Kraj = 'Polska' AND wyniki.Skok2 > 0.0;
+3.
+SELECT Skok1, Skok2 FROM `wyniki` JOIN zawodnicy ON wyniki.ID_zawodnika = zawodnicy.ID_zawodnika JOIN konkursy ON wyniki.ID_konkursu = konkursy.ID_konkursu WHERE zawodnicy.Imie = 'Kamil' AND zawodnicy.Nazwisko = 'Stoch' AND konkursy.Miejsce = 'Wisła';
+4.
+SELECT DISTINCT Imie, Nazwisko FROM `zawodnicy`
+JOIN wyniki ON zawodnicy.ID_zawodnika = wyniki.ID_zawodnika
+WHERE wyniki.Skok1 > 240 OR wyniki.Skok2 > 240;
